@@ -8,6 +8,8 @@
 #include <mem.h>
 #include <io.h>
 #include <stdio.h>
+#include <lock.h>
+
 
 LOCAL int newpid();
 

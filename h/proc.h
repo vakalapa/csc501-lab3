@@ -2,6 +2,7 @@
 
 #ifndef _PROC_H_
 #define _PROC_H_
+#include <lock.h>
 
 /* process table declarations and defined constants			*/
 

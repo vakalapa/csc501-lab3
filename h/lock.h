@@ -41,7 +41,7 @@ void linit(void);
 int  lcreate(void);
 int  ldelete(int lockdescriptor);
 int  lock(int ldes1, int type, int priority);
-int  releaseall(int numlocks, int ldes1, ...);
+int  releaseall(int numlocks, long ldes1, ...);
 
 
 #endif
