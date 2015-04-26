@@ -60,6 +60,9 @@ struct	pentry	{
 	int	fildes[_NFILE];		/* file - device translation	*/
 	int	ppagedev;		/* pageing dgram device		*/
 	int	pwaitret;
+	int plockwaitret;   /* return value after waiting for a lock */	
+	unsigned long pintime;		/* clock time when this process requests a lock */	
+	int locktype[NLOCKS];		/* the type of lock requested by this process for each lock - will be DELETED if a lock this process is waiting on is deleted */
 };
 
 

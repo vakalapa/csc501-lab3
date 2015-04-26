@@ -67,6 +67,18 @@ SYSCALL create(procaddr,ssize,priority,name,nargs,args)
 	pptr->pnxtkin = BADPID;
 	pptr->pdevs[0] = pptr->pdevs[1] = pptr->ppagedev = BADDEV;
 
+	/*initializing proctab lock specific values*/
+	pptr->pintime = 0;	
+	pptr->plockwaitret = OK;	
+
+	int ldes;	
+
+	for(ldes = 0; ldes < NLOCKS; ldes++)	
+		{		
+			pptr->locktype[ldes] = NONE; /* This process did not acquire any locks yet */	
+		}
+	
+
 		/* Bottom of stack */
 	*saddr = MAGIC;
 	savsp = (unsigned long)saddr;

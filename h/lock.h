@@ -34,6 +34,9 @@ extern struct lentry locks[];
 extern int nextlock;
 extern int lockiter;
 
+extern unsigned long ctr1000;
+
+
 void linit(void);
 int  lcreate(void);
 int  ldelete(int lockdescriptor);

@@ -22,7 +22,7 @@ int lockiter;
 void linit(void) {
 
     struct lentry *lptr;
-    int i;
+    int pid,i;
 
     nextlock = NLOCKS - 1;
     lockiter = 0;
@@ -30,10 +30,15 @@ void linit(void) {
     for (i = 0; i < NLOCKS; i++){
 		lptr = &locks[i];
         lptr->lstate = LFREE;
+		lptr->ltype= NONE;
 		lptr->lreaders=0;
 		lptr->lwriters=0;
         lptr->lqtail = 1  + (lptr->lqhead = newqueue()); 
-		lptr->liter = 0;	
+		lptr->liter = 0;
+		for(pid=0;pid<NPROC;pid++)		
+		{			
+			lptr->lprocs[pid] = NONE;		
+		}
     }
 
 }
