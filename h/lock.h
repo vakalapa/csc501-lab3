@@ -11,6 +11,8 @@
 
 #define READ 0
 #define WRITE 1
+#define NONE 2
+
 #define LFREE  '\03'
 #define LUSED  '\04'
 
@@ -22,6 +24,7 @@ struct lentry{
 	int  lqhead;    // q index of head of list
     int  lqtail;    // q index of tail of list
     int  liter;     // lock iteration number
+    int lprocs[NPROC];
 
 };
 
